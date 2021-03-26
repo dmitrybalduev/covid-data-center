@@ -20,14 +20,14 @@
         <h2>Information on country and capital city</h2>
         
         <div>
-            <h3>Country Name</h3>
+            <h3 id="country-name">Country Name</h3>
             <ul>
-                <li>population</li>
-                <li>capital city</li>
-                <li>confirmed cases</li>
-                <li>deaths</li>
+                <li id="population">population</li>
+                <li id="capital-name">capital city</li>
+                <li id="confirmed-cases">confirmed cases</li>
+                <li id="deaths">deaths</li>
                 <li>mortality rate</li>
-                <li>number of people vaccinated</li>
+                <li id="recovered">recovered</li>
             </ul>
         </div>
 
@@ -65,9 +65,11 @@
                 </button>
             </form>
         </div> -->
-
+        <select id="select-countries" style="display: none;"></select>
         <div class="input-group input-group-rounded">
+            
             <input class="input-group-field" id="country-input" type="search">
+           
             <div class="input-group-button">
               <input type="submit" class="button secondary" id="submit-button" value="Search">
             </div>
