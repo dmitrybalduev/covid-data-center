@@ -1,4 +1,5 @@
 .input-group-rounded .input-group-field {
+
     border-radius: 5000px 0 0 5000px;
     padding-left: 1rem;
   }
@@ -11,3 +12,8 @@
   div h3 {
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   }
+
+body {
+  background-color: lime;
+}
+
