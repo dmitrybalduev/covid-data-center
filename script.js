@@ -9,12 +9,8 @@ $("#submit-button").on("click", renderSearch);
 function renderSearch(event){
 
     event.preventDefault();
-    let country = "";
-    if(selectCountries[0].value != null){
-        country = selectCountries[0].value;
-    }else{
-        country = countryInput.val();
-    }
+    country = countryInput.val();
+    
     let url = "http://covid-api.mmediagroup.fr/v1/cases?country=" + country;
     fetch(url)
         .then(function (response){
@@ -37,7 +33,7 @@ function renderSearch(event){
 }
 
 function displayError(){
-    
+
 }
 
 function getListCountry(){
@@ -51,22 +47,14 @@ function getListCountry(){
             arrayCountries = Object.keys(data);
             arrayCountries.splice( arrayCountries.length-2, 2);
             arrayAllCountries = arrayCountries;
+            $('#country-input').autocomplete({
+                source: arrayAllCountries,
+            });
             console.log("ARRAY ALL COUNTRIES: " + arrayAllCountries);
             console.log(arrayCountries);
-            for(let i = 0; i < arrayCountries.length; i++){
-                selectCountries.append("<option value="+arrayCountries[i]+">"+arrayCountries[i]+"</option>")
-                
-            }
-            selectCountries.show();
         })
         
 }
 getListCountry();
 
-// Autocomplete widget
-$(function () {
-    let arr = arrayAllCountries;
-    $('#country-input').autocomplete({
-      source: arr,
-    });
-  });
+//select-countries
