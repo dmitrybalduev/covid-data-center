@@ -19,7 +19,7 @@ function renderSearch(event){
         })
         .then(function(data){
             console.log(data);
-            if(Object.keys(data)[0] === "Afghanistan" && country !== "Afghanistan"){
+            if(Object.keys(data)[0] === "Afghanistan"){
                 displayError();
                 return;
             }
