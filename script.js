@@ -1,7 +1,6 @@
 let countryInput = $("#country-input");
 let cityForWeather = "";
 let arrayCountries = [];
-let selectCountries = $("#select-countries");
 let arrayAllCountries = [];
 
 $("#submit-button").on("click", renderSearch);
@@ -50,11 +49,7 @@ function getListCountry(){
             $('#country-input').autocomplete({
                 source: arrayAllCountries,
             });
-            console.log("ARRAY ALL COUNTRIES: " + arrayAllCountries);
-            console.log(arrayCountries);
         })
         
 }
 getListCountry();
-
-//select-countries
