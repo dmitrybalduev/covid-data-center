@@ -3,6 +3,7 @@ let cityForWeather = "";
 let arrayCountries = [];
 let selectCountries = $("#select-countries");
 let arrayAllCountries = [];
+let searchHistory = JSON.parse(localStorage.getItem("searchHistory"));
 
 $("#submit-button").on("click", renderSearch);
 
@@ -16,6 +17,12 @@ function renderSearch(event){
     let url = "http://covid-api.mmediagroup.fr/v1/cases?country=" + country;
     fetch(url)
         .then(function (response){
+            // this line below checks to see if the country has already been searched for
+            if(!searchHistory.includes(country)){
+                searchHistory.push(country);
+            } 
+            localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+            
             return response.json();
         })
         .then(function(data){
@@ -24,6 +31,7 @@ function renderSearch(event){
                 displayError();
                 return;
             }
+            
             $("#country-name").text(country);
             $("#population").text("Population: " + data.All.population);
             $("#capital-name").text("Catital city: " + data.All.capital_city);
@@ -68,5 +76,17 @@ function getListCountry(){
         
 }
 getListCountry();
+
+previouslySearchedCountries();
+// this function generates the search history list
+function previouslySearchedCountries(){  
+    console.log(searchHistory);
+    for(let i=0; i<searchHistory.length; i++){
+        let countryItem = $("<li>")
+        $(".search-history").append(countryItem);
+        countryItem.text(searchHistory[i]);
+        
+    }
+}
 
 //select-countries
