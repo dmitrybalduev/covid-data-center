@@ -17,32 +17,48 @@
     <title>Covid Stats By Country</title>
 </head>
 
-<body>
+
+<body class="grid-container">
     <header><h1>Covid-19 Data Center</h1></header>
 
-    <main>
-        <h2>Information on country and capital city</h2>
-        
-        <div>
-            <h3 id="country-name">Country Name</h3>
-            <ul>
-                <li id="population">population</li>
-                <li id="capital-name">capital city</li>
-                <li id="confirmed-cases">confirmed cases</li>
-                <li id="deaths">deaths</li>
-                <li>mortality rate</li>
-                <li id="recovered">recovered</li>
-            </ul>
+     
+      <div class="grid-x grid-padding-x">
+        <div class="large-12 cell">
+            <header ><h1 class="text-center">Covid-19 Data Center</h1></header>
+        </div>
+      </div>
+
+
+    <main class="grid-x grid-padding-x">
+        <div class="large-12 cell">
+            <h2 class="text-center">Information on country and capital city</h2>
         </div>
 
 
-        <div>
-            <h4>Country's Capital City</h4>
-            <ul>
-                <li>population</li>
-                <li>latitude</li>
-                <li>longitude</li>
-            </ul>
+        <div class="grid-x grid-padding-x">
+            <div class="large-12 medium-12 cell">
+                <h3 id="country-name">Country Name</h3>
+                <ul class="no-bullet">
+                    <li id="population">population</li>
+                    <li id="capital-name">capital city</li>
+                    <li id="confirmed-cases">confirmed cases</li>
+                    <li id="deaths">deaths</li>
+                    <li>mortality rate</li>
+                    <li id="recovered">recovered</li>
+                </ul>
+            </div>
+        
+        
+
+            
+            <div class="large-12 medium-12 cell">
+                <h4>Country's Capital City</h4>
+                    <ul class="no-bullet">
+                        <li>population</li>
+                        <li>latitude</li>
+                        <li>longitude</li>
+                    </ul>
+            </div>
         </div>
         
 
@@ -55,7 +71,8 @@
 
     
     <aside>
-        <div class="input-group input-group-rounded">
+    <div class="grid-x grid-padding-x">
+        <div class="input-group input-group-rounded large-4 medium-4 cell">
             
             <input class="input-group-field" id="country-input" type="search">
            
@@ -63,14 +80,19 @@
               <input type="submit" class="button secondary" id="submit-button" value="Search">
             </div>
           </div>
+    </div>
         
 
         <!-- this is the list of countries section -->
         <div class=" ">
+          <div class="grid-x grid-padding-x">
+            <div class="large-8 medium-8 cell">
             <h2>Previosuly searched countries:</h2>
             <ul class="search-history">
                 <!-- <li>country1</li> -->
             </ul>
+            </div>
+          </div>
         </div>
 
     </aside>

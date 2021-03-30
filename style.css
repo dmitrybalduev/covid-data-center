@@ -13,6 +13,7 @@ div h3 {
 }
 
 body {
+  margin: 0;
   background-color: white;
 }
 
@@ -20,4 +21,21 @@ h1 {
   text-align: center;
   background-color: grey;
   font-size: 100px;
+=======
+ul,
+li,
+h1,
+h2,
+h3 { 
+  margin: 0;
+  padding: 0; 
 }
+
+ul {
+  margin-left: 1.25rem;
+  list-style-type: disc; }
+
+li {
+  font-size: inherit; }
+
+.input-group {
