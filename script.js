@@ -1,7 +1,6 @@
 let countryInput = $("#country-input");
 let cityForWeather = "";
 let arrayCountries = [];
-let selectCountries = $("#select-countries");
 let arrayAllCountries = [];
 let searchHistoryA = JSON.parse(localStorage.getItem("searchHistory"));
 
@@ -21,7 +20,7 @@ function renderSearch(event){
         })
         .then(function(data){
             console.log(data);
-            if(Object.keys(data)[0] === "Afghanistan" && country !== "Afghanistan"){
+            if(Object.keys(data)[0] === "Afghanistan"){
                 displayError();
                 return;
             }
@@ -75,12 +74,11 @@ function getListCountry(){
             $('#country-input').autocomplete({
                 source: arrayAllCountries,
             });
-            console.log("ARRAY ALL COUNTRIES: " + arrayAllCountries);
-            console.log(arrayCountries);
         })
         
 }
 getListCountry();
+
 
 previouslySearchedCountries();
 // this function generates the search history list
