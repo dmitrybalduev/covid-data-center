@@ -1,4 +1,3 @@
-//let countryInput = $("#country-input");
 let countryInput;
 let cityForWeather = "";
 let arrayCountries = [];
@@ -7,14 +6,14 @@ let searchHistoryA = JSON.parse(localStorage.getItem("searchHistory"));
 
 
 $("#submit-button").on("click", function(){
-    countryInput = $("#country-input").val();
+    countryInput = $("#country-input").val()
+    countryInput = capitalizeCountryName(countryInput);
     renderSearch();
 });
 
-
 function renderSearch(){
     let country = countryInput;
-
+    
     $("#country-input").val("checking country....");
     
     let url = "http://covid-api.mmediagroup.fr/v1/cases?country=" + country;
@@ -103,12 +102,13 @@ function previouslySearchedCountries(){
     });
 }
 
-function capilizeCountriyName(name){
-    let tempArr = name.split(" ");
-    let output = ""
-    for(let i = 0; i < tempArr.length; i++){
-        output = output + tempArr[i][0].toUpperCase() + tempArr[i].substr(1) + " ";
+function capitalizeCountryName(name){
+    console.log("INPUT COUNTRY " + name);
+    for(let i = 0; i < arrayAllCountries.length; i++){
+        if(arrayAllCountries[i].toLowerCase() === name.toLowerCase()){
+            console.log("OUTPUT is : " + arrayAllCountries[i])
+            return arrayAllCountries[i];
+        }
     }
-    console.log(output);
-    return output.trim();
+    return "";
 }
