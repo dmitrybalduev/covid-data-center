@@ -3,7 +3,7 @@ let cityForWeather = "";
 let arrayCountries = [];
 let arrayAllCountries = [];
 let searchHistoryA = JSON.parse(localStorage.getItem("searchHistory"));
-
+let code = "";
 
 $("#submit-button").on("click", function(){
     countryInput = $("#country-input").val()
@@ -13,7 +13,8 @@ $("#submit-button").on("click", function(){
 
 function renderSearch(){
     let country = countryInput;
-    
+    //getting code for given country:
+     code = getCode(country);
     $("#country-input").val("checking country....");
     
     let url = "http://covid-api.mmediagroup.fr/v1/cases?country=" + country;
@@ -103,12 +104,26 @@ function previouslySearchedCountries(){
 }
 
 function capitalizeCountryName(name){
-    console.log("INPUT COUNTRY " + name);
+    //looping through the array of countries list
     for(let i = 0; i < arrayAllCountries.length; i++){
+        //check if input country matches with any of countries from array ignoring case
         if(arrayAllCountries[i].toLowerCase() === name.toLowerCase()){
-            console.log("OUTPUT is : " + arrayAllCountries[i])
             return arrayAllCountries[i];
         }
     }
     return "";
+}
+
+//function to get country code by country name
+function getCode(countryName){
+    let code = "";
+    fetch("https://api.first.org/data/v1/countries?q=" + countryName)
+    .then(function (response){
+        return response.json();
+    })
+    .then(function(data){
+        //retrieving code from JSON object
+        code = Object.keys(data.data)[0];
+    })
+    return code;
 }
