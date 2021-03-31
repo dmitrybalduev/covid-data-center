@@ -1,17 +1,19 @@
-let countryInput = $("#country-input");
+//let countryInput = $("#country-input");
+let countryInput;
 let cityForWeather = "";
 let arrayCountries = [];
 let arrayAllCountries = [];
 let searchHistoryA = JSON.parse(localStorage.getItem("searchHistory"));
 
-$("#submit-button").on("click", renderSearch);
+
+$("#submit-button").on("click", function(){
+    countryInput = $("#country-input").val();
+    renderSearch();
+});
 
 
-function renderSearch(event){
-
-    event.preventDefault();
-    let country = "";
-    country = countryInput.val();
+function renderSearch(){
+    let country = countryInput;
     $("#country-input").val("checking country....");
     
     let url = "http://covid-api.mmediagroup.fr/v1/cases?country=" + country;
@@ -75,7 +77,6 @@ function getListCountry(){
                 source: arrayAllCountries,
             });
         })
-        
 }
 getListCountry();
 
@@ -92,35 +93,13 @@ function previouslySearchedCountries(){
         $(".search-history").append(countryItem);
         countryItem.text(searchHistoryA[i]);
         countryItem.addClass("clickable");
-
-    $(countryItem).on("click", renderSearchB);
-        function renderSearchB(){
-            let country = countryItem.text();
-            $("#countryInput").val("checking country....");
-            //console.log(country);
-            
-            let url = "http://covid-api.mmediagroup.fr/v1/cases?country=" + country;
-            fetch(url)
-                .then(function (response){
-                    return response.json();
-                })
-                .then(function(data){
-                    console.log(data);
-                    if(Object.keys(data)[0] === "Afghanistan"){
-                        displayError();
-                        return;
-                    }
-                    $("#country-name").text(country);
-                    $("#population").text("Population: " + data.All.population);
-                    $("#capital-name").text("Catital city: " + data.All.capital_city);
-                    $("#confirmed-cases").text("Confirmed cases: " + data.All.confirmed);
-                    $("#deaths").text("Deaths: " + data.All.deaths);
-                    $("#recovered").text("Deaths: " + data.All.recovered);
-                    //the below line clears the search box after the search is complete
-                    $("#country-input").val("");
-                })
-        }
+        countryItem.attr("data-country", searchHistoryA[i]);
     }
+    $(".clickable").on("click", function(){
+        countryInput = $(this).attr("data-country");
+        console.log(countryInput);
+        renderSearch();
+    });
 }
 
 //select-countries
