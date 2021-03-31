@@ -12,6 +12,8 @@ function renderSearch(event){
     event.preventDefault();
     let country = "";
     country = countryInput.val();
+    country = capilizeCountriyName(country);
+    console.log(country);
     $("#country-input").val("checking country....");
     
     let url = "http://covid-api.mmediagroup.fr/v1/cases?country=" + country;
@@ -123,4 +125,12 @@ function previouslySearchedCountries(){
     }
 }
 
-//select-countries
+function capilizeCountriyName(name){
+    let tempArr = name.split(" ");
+    let output = ""
+    for(let i = 0; i < tempArr.length; i++){
+        output = output + tempArr[i][0].toUpperCase() + tempArr[i].substr(1) + " ";
+    }
+    console.log(output);
+    return output.trim();
+}
