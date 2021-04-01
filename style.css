@@ -18,6 +18,24 @@
     width: 100vw;
     height: 100vh;
   }
+
+  .primary {
+    margin-left:40px;
+    padding:40px;
+    border-radius:40px;
+    border-color:indianred;
+    border-width: 5px;
+    border-style:solid;
+  }
+
+  .no-bullet {
+    padding:20px;
+    border-width:1px;
+    border-color:navy;
+    border-style:solid;
+    border-radius:20px;
+
+  }
   
   @media screen and (max-width: 60em) {
     .container {
@@ -102,7 +120,17 @@
     margin: 0;
   }
   
+  #country-name,
   
+
+  #population,
+  #capital-name,
+  #confirmed-cases,
+  #deaths,
+  #mortality,
+  #recovered {
+    font-size:20px;
+  }
 
 
 
