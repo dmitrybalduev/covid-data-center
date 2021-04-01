@@ -152,8 +152,4 @@ function flag(){
     .catch(function(err) {
 	    console.error(err);
     });
-
-
-
-
 }
