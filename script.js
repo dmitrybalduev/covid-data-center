@@ -14,7 +14,7 @@ $("#submit-button").on("click", function(){
 function renderSearch(){
     let country = countryInput;
     //getting code for given country:
-     code = getCode(country);
+     getCode(country);
     $("#country-input").val("checking country....");
     
     let url = "http://covid-api.mmediagroup.fr/v1/cases?country=" + country;
@@ -47,6 +47,7 @@ function renderSearch(){
             $("#recovered").text("Deaths: " + data.All.recovered);
             //the below line clears the search box after the search is complete
             $("#country-input").val("");
+            flag();
 
         })
         
@@ -116,7 +117,7 @@ function capitalizeCountryName(name){
 
 //function to get country code by country name
 function getCode(countryName){
-    let code = "";
+    //let code = "";
     fetch("https://api.first.org/data/v1/countries?q=" + countryName)
     .then(function (response){
         return response.json();
@@ -125,5 +126,34 @@ function getCode(countryName){
         //retrieving code from JSON object
         code = Object.keys(data.data)[0];
     })
-    return code;
+    //return code;
+}
+
+
+function flag(){
+    //let url = "https://wft-geo-db.p.rapidapi.com/v1/geo/countries/"+code;  //"+=afc5f5f08amshf6217d97864312ep1529d2jsn75cc6f37ffb1";
+    //the above is a different way
+
+    fetch("https://wft-geo-db.p.rapidapi.com/v1/geo/countries/"+code, {
+	    "method": "GET",
+	    "headers": {
+		"x-rapidapi-key": "afc5f5f08amshf6217d97864312ep1529d2jsn75cc6f37ffb1"
+		//"x-rapidapi-host": "wft-geo-db.p.rapidapi.com"
+	    }
+    })
+
+    .then(function (res){
+            return res.json();
+    })
+    .then(function(response) {
+        console.log(response);
+        $(".info-display").attr("src", response.data.flagImageUri);
+    })
+    .catch(function(err) {
+	    console.error(err);
+    });
+
+
+
+
 }
