@@ -17,7 +17,7 @@ function renderSearch(){
      getCode(country);
     $("#country-input").val("checking country....");
     
-    let url = "http://covid-api.mmediagroup.fr/v1/cases?country=" + country;
+    let url = "https://covid-api.mmediagroup.fr/v1/cases?country=" + country;
     fetch(url)
         .then(function (response){
             return response.json();
@@ -65,7 +65,7 @@ function displayError(){
 }
 
 function getListCountry(){
-    let url = "http://covid-api.mmediagroup.fr/v1/cases"
+    let url = "https://covid-api.mmediagroup.fr/v1/cases"
     
     fetch(url)
         .then(function (response){
@@ -130,31 +130,41 @@ function getCode(countryName){
     //return code;
 }
 
-
+let imgError = $("<p>")
+let isError = false;
 function flag(){
     //let url = "https://wft-geo-db.p.rapidapi.com/v1/geo/countries/"+code;  //"+=afc5f5f08amshf6217d97864312ep1529d2jsn75cc6f37ffb1";
     //the above is a different way
-
+    console.log("CODE HERE: " + code);
     fetch("https://wft-geo-db.p.rapidapi.com/v1/geo/countries/"+code, {
-	    "method": "GET",
-	    "headers": {
-		"x-rapidapi-key": "afc5f5f08amshf6217d97864312ep1529d2jsn75cc6f37ffb1"
-		//"x-rapidapi-host": "wft-geo-db.p.rapidapi.com"
-	    }
+        "method": "GET",
+        "headers": {
+        "x-rapidapi-key": "afc5f5f08amshf6217d97864312ep1529d2jsn75cc6f37ffb1"
+        //"x-rapidapi-host": "wft-geo-db.p.rapidapi.com"
+        }
     })
-
-    .then(function (res){
-            return res.json();
+    .then(function (response){
+            if(response.status != 200){
+                $(".info-display").hide();
+                $(".grid-3").append(imgError);
+                imgError.text("no image");
+                imgError.show();
+                isError = true;
+                return;
+            }else{
+                isError = false;
+            }
+            return response.json();
     })
-    .then(function(response) {
-        console.log(response);
-        $(".info-display").attr("src", response.data.flagImageUri);
+    .then(function(re) {
+        console.log(re);
+        if(!isError){
+            imgError.hide();
+            $(".info-display").show();
+            $(".info-display").attr("src", re.data.flagImageUri);
+        }
     })
     .catch(function(err) {
-	    console.error(err);
+        console.error(err);
     });
-
-
-
-
 }
