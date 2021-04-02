@@ -8,6 +8,11 @@
     integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
   <!-- Insert this within your head tag and after foundation.css -->
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+
+  <link rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous">
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="style.css" />
   <title>Covid Stats By Country</title>
@@ -36,9 +41,9 @@
 
 
 
-    <div class="grid-4 callout success">
+    <div class="grid-4 callout success list-wrapper">
       <h2>Previously Searched Countries:</h2>
-      <ul class="search-history">
+      <ul class="search-history no-bullet">
         <!-- <li>country1</li> -->
       </ul>
     </div>
@@ -54,7 +59,6 @@
           <li id="capital-name">capital city</li>
           <li id="confirmed-cases">confirmed cases</li>
           <li id="deaths">deaths</li>
-          <li id="mortality">mortality rate</li>
           <li id="recovered">recovered</li>
         </ul>
       </div>
@@ -63,12 +67,11 @@
 
     <section class="grid-3 callout alert">
       <!-- Results of second API search -->
-      <h4>Country's Flag</h4>
-      <ul class="second-api no-bullet">
-      </ul>
-      <img class="info-display"> <!-- This will be used to display second API call. -->
-      </div>
-      </div>
+      <h3>Country Flag</h3>
+      <img class="info-display">  <!-- This will be used to display second API call. -->
+    </div>
+    </div> 
+
     </section>
 
 
