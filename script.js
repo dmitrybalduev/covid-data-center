@@ -65,7 +65,7 @@ function displayError(){
 }
 
 function getListCountry(){
-    let url = "http://covid-api.mmediagroup.fr/v1/cases"
+    let url = "https://covid-api.mmediagroup.fr/v1/cases"
     
     fetch(url)
         .then(function (response){
@@ -119,7 +119,7 @@ function capitalizeCountryName(name){
 //function to get country code by country name
 function getCode(countryName){
     //let code = "";
-    fetch("http://api.first.org/data/v1/countries?q=" + countryName)
+    fetch("https://api.first.org/data/v1/countries?q=" + countryName)
     .then(function (response){
         return response.json();
     })
