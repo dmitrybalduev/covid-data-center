@@ -14,7 +14,7 @@
   -ms-grid-columns: (1fr) [4];
   grid-template-columns: repeat(4, 1fr);
   width: 100vw;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .callout {
