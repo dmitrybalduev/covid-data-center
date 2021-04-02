@@ -44,7 +44,7 @@ function renderSearch(){
             $("#capital-name").text("Catital city: " + data.All.capital_city);
             $("#confirmed-cases").text("Confirmed cases: " + data.All.confirmed);
             $("#deaths").text("Deaths: " + data.All.deaths);
-            $("#recovered").text("Deaths: " + data.All.recovered);
+            $("#recovered").text("Recovered: " + data.All.recovered);
             //the below line clears the search box after the search is complete
             $("#country-input").val("");
             flag();
@@ -147,7 +147,7 @@ function flag(){
             if(response.status != 200){
                 $(".info-display").hide();
                 $(".grid-3").append(imgError);
-                imgError.text("no image");
+                imgError.text("no flag available");
                 imgError.show();
                 isError = true;
                 return;
