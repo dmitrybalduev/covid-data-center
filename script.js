@@ -91,7 +91,7 @@ function previouslySearchedCountries(){
         return;
     };
     for(let i=0; i<searchHistoryA.length; i++){
-        let countryItem = $("<button></button>");
+        let countryItem = $("<button>")
         $(".search-history").append(countryItem);
         countryItem.text(searchHistoryA[i]);
         countryItem.addClass("clickable");
