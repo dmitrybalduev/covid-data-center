@@ -26,6 +26,11 @@ function renderSearch(){
             console.log(data);
             if(Object.keys(data)[0] === "Afghanistan"){
                 displayError();
+                $(".info-display").hide();
+                $(".grid-3").append(imgError);
+                imgError.text("no flag available");
+                imgError.show();
+                isError = true;
                 return;
             }
             //this creates an array
@@ -48,9 +53,7 @@ function renderSearch(){
             //the below line clears the search box after the search is complete
             $("#country-input").val("");
             flag();
-
         })
-        
 }
 
 //this function fills the search box with a message prompting the user to enter an actual country
