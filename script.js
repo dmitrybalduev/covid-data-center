@@ -17,7 +17,7 @@ function renderSearch(){
      getCode(country);
     $("#country-input").val("checking country....");
     
-    let url = "http://covid-api.mmediagroup.fr/v1/cases?country=" + country;
+    let url = "https://covid-api.mmediagroup.fr/v1/cases?country=" + country;
     fetch(url)
         .then(function (response){
             return response.json();
@@ -65,7 +65,7 @@ function displayError(){
 }
 
 function getListCountry(){
-    let url = "http://covid-api.mmediagroup.fr/v1/cases"
+    let url = "https://covid-api.mmediagroup.fr/v1/cases"
     
     fetch(url)
         .then(function (response){
