@@ -4,13 +4,13 @@ let arrayCountries = [];
 let arrayAllCountries = [];
 let searchHistoryA = JSON.parse(localStorage.getItem("searchHistory"));
 let code = "";
-/* let revealGrid = document.getElementsByClassName("search-results"); */
+
 $("#submit-button").on("click", function(){
     countryInput = $("#country-input").val()
     countryInput = capitalizeCountryName(countryInput);
-    renderSearch();
-    /* revealGrid.removeAttribute("style"); */
+    renderSearch();    
 });
+
 function renderSearch(){
     let country = countryInput;
     //getting code for given country:
@@ -96,6 +96,7 @@ function previouslySearchedCountries(){
         countryItem.text(searchHistoryA[i]);
         countryItem.addClass("clickable");
         countryItem.attr("data-country", searchHistoryA[i]);
+        countryItem.css("display", "block")
     }
     $(".clickable").on("click", function(){
         countryInput = $(this).attr("data-country");
