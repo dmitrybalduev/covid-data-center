@@ -147,7 +147,7 @@ function flag(){
             if(response.status != 200){
                 $(".info-display").hide();
                 $(".grid-3").append(imgError);
-                imgError.text("no image");
+                imgError.text("no flag available");
                 imgError.show();
                 isError = true;
                 return;
