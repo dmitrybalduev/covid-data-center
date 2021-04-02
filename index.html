@@ -9,23 +9,24 @@
   <!-- Insert this within your head tag and after foundation.css -->
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
 
-  <!-- rel="stylesheet"
+  <link rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
       integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-      crossorigin="anonymous" -->
+      crossorigin="anonymous">
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="style.css" />
   <title>Covid Stats By Country</title>
 </head>
 
 
-<body >
-  
+<body>
+
   <header>
     <h1 class="text-center">Covid-19 Data Center</h1>
   </header>
 
-  <main class="container"> 
-    
+  <main class="container">
+
 
     <aside class="grid-2 callout warning">
       <!-- Search button for COVID Data.-->
@@ -37,47 +38,62 @@
         </div>
       </div>
     </aside>
-    
 
 
-    <div class="grid-4 callout success">
+
+    <div class="grid-4 callout success list-wrapper">
       <h2>Previously Searched Countries:</h2>
-      <ul class="search-history">
+      <ul class="search-history no-bullet">
         <!-- <li>country1</li> -->
       </ul>
     </div>
-    
-    <section class="grid-1 callout primary">  <!-- style="display:none" -->
+
+    <section class="grid-1 callout primary">
+      <!-- style="display:none" -->
       <!-- Results of COVID Data from previous aside above. -->
-      <div class="search-results columns medium-7"> <!-- data-toggler data-animate="fade-in fade-out" -->
+      <div class="search-results columns medium-7">
+        <!-- data-toggler data-animate="fade-in fade-out" -->
         <h2 id="country-name">Country Name</h2>
         <ul id="country-info" class="no-bullet">
           <li id="population">population</li>
           <li id="capital-name">capital city</li>
           <li id="confirmed-cases">confirmed cases</li>
           <li id="deaths">deaths</li>
-          <li id="mortality">mortality rate</li>
           <li id="recovered">recovered</li>
         </ul>
-      </div>  
+      </div>
     </section>
-    
-   
+
+
     <section class="grid-3 callout alert">
       <!-- Results of second API search -->
-      <h4>Country's Capital City</h4>
-      <ul class="second-api no-bullet">
-        <li id="pop-api-2">population</li>
-        <li id="lat-api-2">latitude</li>
-        <li id="lon-api-2">longitude</li>
-      </ul>
+      <h3>Country Flag</h3>
       <img class="info-display">  <!-- This will be used to display second API call. -->
     </div>
     </div> 
+
     </section>
-    
-    
+
+
   </main>
+
+  <footer class="social-footer">
+    <class class="social-footer-left">
+      <p id="footer-message">Group-members: Dimitry, James, Mike, and Jung</p>
+    </class>
+    </div>
+    <div class="social-footer-icons">
+      <ul class="menu simple">
+        <li><a href="https://www.facebook.com/">Facebook<i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+        </li>
+        <li><a href="https://www.instagram.com/?hl=en">Instagram<i class="fa fa-instagram" aria-hidden="true"></i></a>
+        </li>
+        <li><a href="https://www.pinterest.com/">Pinterest<i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+        <li><a href="https://twitter.com/?lang=en">Twitter<i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+      </ul>
+    </div>
+  </footer>
+
 
 
 
