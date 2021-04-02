@@ -95,6 +95,7 @@ function previouslySearchedCountries(){
         $(".search-history").append(countryItem);
         countryItem.text(searchHistoryA[i]);
         countryItem.addClass("clickable");
+        countryItem.css("display", "block");
         countryItem.attr("data-country", searchHistoryA[i]);
         countryItem.css("display", "block")
     }
