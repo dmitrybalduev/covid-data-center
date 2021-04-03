@@ -166,6 +166,7 @@ function flag(){
             imgError.hide();
             $(".info-display").show();
             $(".info-display").attr("src", re.data.flagImageUri);
+            $(".info-display").css("max-height", "300px")
         }
     })
     .catch(function(err) {
