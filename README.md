@@ -10,4 +10,4 @@ https://dmitrybalduev.github.io/covid-data-center/
 link to github repo:
 https://github.com/dmitrybalduev/covid-data-center
 
-![alt text](screenshot.jpg)
+![alt text](screenshot.png)
