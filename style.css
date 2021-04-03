@@ -29,20 +29,27 @@
   border-color: navy;
   border-width: 5px;
   border-style: solid;
-  /* height:50vh; */
 }
 .grid-1 {
-  height:50vh;
+  max-height:400px;
+  overflow-y: auto;
 }
 .grid-2 {
-  height:30vh;
+  max-height:400px;
 }
 .grid-3 {
-  height:50vh;
+  max-height:400px;
 }
 .grid-4 {
- height:50vh;
+  display:flex;
+  max-height:400px;
+  overflow-y:auto;
 } 
+.info-display {
+  display:flex;
+  max-height:400px;
+  overflow-y: auto;  
+}
 #country-name {
   font-size: 60px;
   font-weight: bolder;
@@ -106,6 +113,7 @@ button:hover {
 }
 
 .list-wrapper {
+  text-align:center;
   max-height: 500px;
   overflow-y: auto;
 }
@@ -116,7 +124,7 @@ button:hover {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
-.second-api {
+/* .second-api {
   background-color: whitesmoke;
   padding: 20px;
   width: 70%;
@@ -124,7 +132,7 @@ button:hover {
   border-color: navy;
   border-style: solid;
   border-radius: 40px;
-}
+} */
 
 #pop-api-2,
 #lat-api-2,
