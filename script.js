@@ -46,7 +46,7 @@ function renderSearch(){
             
             $("#country-name").text(country);
             $("#population").text("Population: " + data.All.population);
-            $("#capital-name").text("Catital city: " + data.All.capital_city);
+            $("#capital-name").text("Capital city: " + data.All.capital_city);
             $("#confirmed-cases").text("Confirmed cases: " + data.All.confirmed);
             $("#deaths").text("Deaths: " + data.All.deaths);
             $("#recovered").text("Recovered: " + data.All.recovered);
